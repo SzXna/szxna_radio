@@ -20,7 +20,6 @@ end
 RegisterNetEvent('szxna_radio:set_vol')
 AddEventHandler('szxna_radio:set_vol', function()
 	local input = lib.inputDialog(TranslateCap('menu_dialog_volume'), {'0 - 100 %'})
-
 	if not input then toggleRadio() end
 	RadioVolume = tonumber(input[1])
 	if RadioVolume == nil or RadioVolume < 0 or RadioVolume > 100 then
@@ -42,6 +41,7 @@ end)
 RegisterNetEvent('szxna_radio:set_freq')
 AddEventHandler('szxna_radio:set_freq', function()
     local input = lib.inputDialog(TranslateCap('menu_dialog_frequency'), {'1 - ' .. Config.maximum_frequency})
+	if not input then toggleRadio() end
     RadioChannel = tonumber(input[1])
 	if RadioChannel == nil or RadioChannel < 1 or RadioChannel > Config.maximum_frequency then
 		RadioChannel = '0 (OFF)'
