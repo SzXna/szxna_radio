@@ -140,5 +140,5 @@ if Config.radio_item == false then
         toggleRadio()
     end, false)
 
-    RegisterKeyMapping('toggleRadio', TranslateCap('controls_toggle_radio'), 'keyboard', 'F10')
+    RegisterKeyMapping('toggleRadio', TranslateCap('controls_toggle_radio'), 'keyboard', Config.radio_open_button)
 end
