@@ -7,6 +7,12 @@
 - compatible with newest ox_inventory and esx-legacy<br>
 - preview: https://streamable.com/gjkcar
 	
+# Features
+
+* Advanced configuration
+* Compatible with the latest esx & ox
+* Translation into different languages	
+
 # Instructions
 - Download repo from github<br>
 - Configure in config.lua<br>
