@@ -5,7 +5,5 @@ Locales['pl'] = {
     ['menu_disconnect_channel'] = 'Opuść kanał',
     ['menu_dialog_volume'] = 'Ustaw głośność',
     ['menu_dialog_frequency'] = 'Ustaw częstotliwość',
-    ['controls_toggle_radio'] = 'Uruchom radio',
-    ['volume_is_set'] = 'Głośność jest ustawiona na %s',
-    ['frequency_is_set'] = 'Częstotliwość jest ustawiona na %s'
+    ['controls_toggle_radio'] = 'Uruchom radio'
 }
