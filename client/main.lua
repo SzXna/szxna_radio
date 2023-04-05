@@ -28,13 +28,6 @@ AddEventHandler('szxna_radio:set_vol', function()
 	else
 		toggleRadio()
 		exports['pma-voice']:setRadioVolume(RadioVolume)
-		if Config.ox_notification then
-            lib.notify({
-                description = TranslateCap('volume_is_set', RadioVolume) .. '%',
-            })
-        else
-            ESX.ShowNotification(TranslateCap('volume_is_set', RadioVolume) .. '%')
-        end
 	end
 end)
 
@@ -55,13 +48,6 @@ AddEventHandler('szxna_radio:set_freq', function()
                     exports['pma-voice']:setVoiceProperty('radioEnabled', true)
                     exports['pma-voice']:setVoiceProperty('micClicks', true)
                     exports['pma-voice']:setRadioChannel(RadioChannel)
-					if Config.ox_notification then
-						lib.notify({
-							description = TranslateCap('frequency_is_set', RadioChannel),
-						})
-					else
-						ESX.ShowNotification(TranslateCap('frequency_is_set', RadioChannel))
-					end
                     RadioOpen = true
                 else
                     RadioChannel = '0 (OFF)'
@@ -74,13 +60,6 @@ AddEventHandler('szxna_radio:set_freq', function()
 			exports['pma-voice']:setVoiceProperty('radioEnabled', true)
 			exports['pma-voice']:setVoiceProperty('micClicks', true)
 			exports['pma-voice']:setRadioChannel(RadioChannel)
-			if Config.ox_notification then
-				lib.notify({
-					description = TranslateCap('frequency_is_set', RadioChannel),
-				})
-			else
-				ESX.ShowNotification(TranslateCap('frequency_is_set', RadioChannel))
-			end
 			RadioOpen = true
 		end
 	end
@@ -142,3 +121,13 @@ if Config.radio_item == false then
 
     RegisterKeyMapping('toggleRadio', TranslateCap('controls_toggle_radio'), 'keyboard', Config.radio_open_button)
 end
+
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(3000)
+		local count = exports.ox_inventory:Search('count', Config.radio_item_name)
+		if count == 0 then
+			TriggerEvent('szxna_radio:leave')
+		end
+	end
+end)
