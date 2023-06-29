@@ -121,7 +121,7 @@ if Config.radio_item == false then
 
     RegisterKeyMapping('toggleRadio', TranslateCap('controls_toggle_radio'), 'keyboard', Config.radio_open_button)
 end
-
+--[[ fixed animation cancellation problem in ox_inventory
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(3000)
@@ -130,4 +130,4 @@ Citizen.CreateThread(function()
 			TriggerEvent('szxna_radio:leave')
 		end
 	end
-end)
+end)]]
